@@ -1,0 +1,242 @@
+:root {
+    --bg: #f3f6f4;
+    --surface: #ffffff;
+    --ink: #16302b;
+    --muted: #4d635d;
+    --line: #d5e0db;
+    --accent: #0f766e;
+    --accent-dark: #0b5a54;
+    --shadow: 0 10px 30px rgba(22, 48, 43, 0.08);
+    --radius: 14px;
+    --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--ink);
+    background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 40%),
+        linear-gradient(180deg, #eef5f2 0%, var(--bg) 40%, #e7efeb 100%);
+    min-height: 100vh;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+.container {
+    width: min(960px, calc(100% - 2rem));
+    margin-inline: auto;
+}
+
+.site-header {
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--ink);
+}
+
+.nav {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: var(--muted);
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+}
+
+.nav a.active,
+.nav a:hover {
+    color: var(--accent-dark);
+    background: rgba(15, 118, 110, 0.1);
+}
+
+.main {
+    padding: 2rem 0 3rem;
+}
+
+.hero,
+.page-intro,
+.panel,
+.product-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.hero,
+.page-intro,
+.panel {
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.eyebrow,
+.category {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1.15;
+}
+
+h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.lead,
+.page-intro p,
+.product-item p {
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 0;
+}
+
+.meta-grid dt {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+}
+
+.meta-grid dd {
+    margin: 0;
+    font-weight: 600;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    word-break: break-all;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+
+.button:hover {
+    background: var(--accent-dark);
+    color: #fff;
+}
+
+.button-secondary {
+    background: transparent;
+    color: var(--accent-dark);
+    border: 1px solid var(--line);
+}
+
+.button-secondary:hover {
+    background: rgba(15, 118, 110, 0.08);
+    color: var(--accent-dark);
+}
+
+.button-small {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.product-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.product-item {
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.product-meta {
+    text-align: right;
+    min-width: 8rem;
+}
+
+.price {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    padding: 1.25rem 0 2rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-item {
+        flex-direction: column;
+    }
+
+    .product-meta {
+        text-align: left;
+        width: 100%;
+    }
+}
